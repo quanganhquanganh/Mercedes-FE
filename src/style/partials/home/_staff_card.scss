@@ -1,0 +1,128 @@
+.staff-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid #007320;
+    background: #f8f8f8;
+    width: 315px;
+    height: fit-content;
+    flex-shrink: 0;
+    // margin: 30px 0;
+    cursor: pointer;
+    transition: all .2s linear;
+    box-shadow: 2px 2px 0.5em #00000050 ;
+    justify-self: center;
+
+    .staff-card__image {
+        position: relative;
+        height: 208px;
+        min-height: 208px;
+        width: 100%;
+        overflow: hidden;
+        border: inherit;
+        border-radius: 13px 13px 0 0;
+        
+        
+        div {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 10;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+        }
+    }
+
+    .staff-card__info {
+        padding: 1.5em 1em;
+        display: flex;
+        flex-flow: column;
+        gap: 0.5em;
+
+        span {
+            font-family: Inter;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .staff-card__item {
+            display: flex;
+
+            img {
+                width: 24px;
+                height: 24px;
+                margin-right: 10px;
+            }
+        }
+
+        .staff-card__name-age-star {
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                color: var(--primary-color);
+                font-size: 32px;
+                line-height: 1.5;
+                display: flex;
+                align-items: flex-start;
+
+                svg {
+                    font-size: 0.5em;
+                }
+            }
+        }
+
+        .staff-card__experience {
+            color: var(--secondary-color);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .staff-card__address,
+        .staff-card__language {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+
+            svg {
+                font-size: 24px;
+                margin-right: 10px;
+            }
+
+            span {
+                display: block;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                width: 100%;
+            }
+        }
+
+        .staff-card__language {
+            .staff-card__language__icon {
+                border-radius: 0;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .staff-card__matching-score {
+        position: absolute;
+        bottom: 55%;
+        right: 10px;
+        z-index: 11;
+    }
+
+    &:hover {
+        background-color: #eaeaea;
+        .staff-card__image {
+            img {
+                transition: transform .2s linear;
+                transform: scale(1.1);
+            }
+        }
+    }
+}
