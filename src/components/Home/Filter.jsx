@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -7,6 +7,7 @@ import { matchingNannyApi } from '../../api/home.api';
 import PropTypes from 'prop-types';
 import Slider, { SliderThumb } from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
+
 
 
 
@@ -30,6 +31,13 @@ const NannyFilter = ({
       label: '2000000',
     },
   ];
+  const [address, setAddress] = useState([
+    { name: 'Đống Đa', active: false },
+    { name: 'Hai Bà Trưng', active: false },
+    { name: 'Cầu Giấy', active: false },
+    { name: 'Tây Hồ', active: false },
+    { name: 'Thanh Xuân', active: false },
+  ]);
   function AirbnbThumbComponent(props) {
     const { children, ...other } = props;
     return (
@@ -141,13 +149,13 @@ const NannyFilter = ({
               color: 'white',
               marginLeft: '5%',
               pointerEvents: "none",
-              fontSize: '15px',
+              fontSize: '10px',
               fontWeight: '700',
             }}
           >
             Language
           </Button>
-          <Box marginLeft={'2%'} display={'flex'} flexDirection={'column'} width={'100%'} flexWrap={'wrap'} fontSize={'13px'}>
+          <Box marginLeft={'2%'} display={'flex'} flexDirection={'column'} width={'100%'} flexWrap={'wrap'} fontSize={'10px'}>
             {languages.map((item, key) => {
               return (
                 <div style={{ paddingLeft: '4%'}}>
@@ -177,16 +185,16 @@ const NannyFilter = ({
             width: 'auto',
             borderRadius: '16px',
             color: 'white',
-            marginLeft: '5%',
+            marginLeft: '4%',
             pointerEvents: "none",
-            fontSize: '15px',
+            fontSize: '10px',
             fontWeight: '700',
           }}
             
           >
             Rating
           </Button>
-          <Box marginLeft={'2%'} display={'flex'} flexDirection={'column'} width={'100%'} flexWrap={'wrap'} fontSize={'13px'}>
+          <Box marginLeft={'2%'} display={'flex'} flexDirection={'column'} width={'100%'} flexWrap={'wrap'} fontSize={'10px'}>
             {ratings.map((item, key) => {
               return (
                 <div style={{ paddingLeft: '4%'}}>
@@ -237,13 +245,13 @@ const NannyFilter = ({
             color: 'white',
             marginLeft: '5%',
             pointerEvents: "none",
-            fontSize: '15px',
+            fontSize: '10px',
             fontWeight: '700',
           }}
           >
             Experience
           </Button>
-          <Box marginLeft={'2%'} display={'flex'} flexDirection={'column'} width={'100%'} flexWrap={'wrap'} fontSize={'13px'}>
+          <Box marginLeft={'2%'} display={'flex'} flexDirection={'column'} width={'100%'} flexWrap={'wrap'} fontSize={'10px'}>
             {cookings.map((item, key) => {
               return (
                 <div style={{ paddingLeft: '4%'}}>
@@ -281,7 +289,7 @@ const NannyFilter = ({
         <Typography component="div"
           className='filter-item'
         >
-          <Button
+        <Button
           size="small"
           sx={{
             width: 'auto',
@@ -289,7 +297,53 @@ const NannyFilter = ({
             color: 'white',
             marginLeft: '5%',
             pointerEvents: "none",
-            fontSize: '15px',
+            fontSize: '10px',
+            fontWeight: '700',
+          }}
+          >
+            Address
+          </Button>
+        <Box marginLeft={'2%'} display={'flex'} flexDirection={'column'} width={'100%'} flexWrap={'wrap'} fontSize={'10px'}>
+            {address.map((item, key) => {
+              return (
+                <div style={{ paddingLeft: '4%'}}>
+                <div
+                  className={item.active ? 'filter__btn--active' : 'filter__btn--deactive'}
+                  variant="outlined"
+                  size="small"
+                  key={key}
+                  sx={{
+                    borderRadius: '16px',
+                    color: 'black',
+                    width: 'auto',
+                    padding: '0.5em 1em',
+                    margin: '6px 10px',
+                    textTransform: 'none',
+                  }}
+                  onClick={() => {
+                    setAddress((prevItems) =>
+                      prevItems.map((item, index) => ({
+                        ...item,
+                        active: index === key ? true : false,
+                      })),
+                    );
+                  }}
+                >
+                </div>
+                <span style={{ color: 'white', margin:' 10px', position:'relative', bottom: '2px'}}>{item?.name}</span>
+                </div>
+              );
+            })}
+          </Box>
+          <Button
+          size="small"
+          sx={{
+            width: 'auto',
+            borderRadius: '16px',
+            color: 'white',
+            marginLeft: '4%',
+            pointerEvents: "none",
+            fontSize: '10px',
             fontWeight: '700',
           }}
           >
