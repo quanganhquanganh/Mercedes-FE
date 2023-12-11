@@ -179,7 +179,7 @@ const NannyFilter = ({
                   key={key}
                   sx={{
                     borderRadius: '16px',
-                    color: 'black',
+                    color: 'red',
                     width: 'auto',
                     padding: '0.5em 1em',
                     margin: '6px 10px',

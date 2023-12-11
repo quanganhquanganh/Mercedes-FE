@@ -40,16 +40,16 @@ const Home = ({
         <div className='main-session home-container'>
             <div className="list-staffs">
                 <Box className="list-staffs__head">
-                    <h1 className="list-staffs__title">Staff一覧</h1>
+                    <h1 className="list-staffs__title" style={{color:'#FF0000'}}  >Staff一覧</h1>
                     <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                         <IconButton
                             onClick={setIsFilter}
                         >
-                            <FilterAltIcon sx={{ width: '48px', height: '48px', color: '#1d9a1d' }} />
+                            <FilterAltIcon sx={{ width: '48px', height: '48px', color: '#FF0000' }} />
                         </IconButton>
                     </Box>
                 </Box>
-                <div className="list-staffs__body">
+                <div className="list-staffs__body" style={{color:'#FF0000'}} >
                     {isLoading ?
                         <div className='list-staffs__loading'>
                             <EllipsisLoading />
@@ -71,7 +71,7 @@ const Home = ({
                     }
                 </div>
                 {nannies.length > 0 &&
-                    <div className="list-staffs__paging">
+                    <div className="list-staffs__paging" >
                         <CustomPaging
                             currentPage={currentPage}
                             totalPages={totalPages}
