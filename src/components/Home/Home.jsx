@@ -40,12 +40,12 @@ const Home = ({
         <div className='main-session home-container'>
             <div className="list-staffs">
                 <Box className="list-staffs__head">
-                    <h1 className="list-staffs__title">Staff一覧</h1>
+                    <h1 className="list-staffs__title">Danh sách trợ giảng</h1>
                     <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                         <IconButton
                             onClick={setIsFilter}
                         >
-                            <FilterAltIcon sx={{ width: '48px', height: '48px', color: '#1d9a1d' }} />
+                            <FilterAltIcon sx={{ width: '48px', height: '48px', color: '#9C2C30' }} />
                         </IconButton>
                     </Box>
                 </Box>

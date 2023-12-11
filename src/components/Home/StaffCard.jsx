@@ -9,14 +9,14 @@ import Typography from '@mui/material/Typography'
 const StaffCard = ({ staff }) => {
 
     const navigate = useNavigate();
-    const careExp = useMemo(() => {
+    const teachExp = useMemo(() => {
         let result = staff.care_exp;
         if(result === undefined) {
             return '';
         }
 
         if(result === 'non') {
-            result = 'no exp';
+            result = 'Newbie';
         }
         if(result.includes('>')) {
             result = result.replace('>', '');
@@ -25,21 +25,6 @@ const StaffCard = ({ staff }) => {
         return result;
     }, [staff])
 
-    const cookExp = useMemo(() => {
-        let result = staff.cook_exp;
-        if(result === undefined) {
-            return '';
-        }
-
-        if(result === 'non') {
-            result = 'no exp';
-        }
-        if(result.includes('>')) {
-            result = result.replace('>', '');
-            result += '+';
-        }
-        return result;
-    }, [staff])
 
     function getAge(dateString) {
         var today = new Date();
@@ -96,29 +81,15 @@ const StaffCard = ({ staff }) => {
                 </div>
                 <div className="staff-card__item staff-card__experience">
                     <span>
-                        <img src={require("../../assets/img/child.png")} alt=""
-                            className='experience-icon'
-                        />
-                        {careExp}
+                    Experience {teachExp}
                     </span>
-                    <span>
-                        <img src={require("../../assets/img/cook.png")} alt=""
-                            className='experience-icon'
-                        />
-                        {cookExp}
-                    </span>
+                    
                 </div>
                 <div className="staff-card__item staff-card__language">
-                    <img src={require("../../assets/img/language.png")} alt=""
-                        className='staff-card__language__icon'
-                    />
                     <span>
                         {staff.user_language && [...staff.user_language]?.map(language => language.name).join(", ")}
                         {staff.user_language_names && [...staff.user_language_names].join(", ")}
                     </span>
-                </div>
-                <div className="staff-card__item staff-card__salary">
-                    <span>{staff?.salary.toLocaleString("vi-VN")} VND/日</span>
                 </div>
             </div>
             {
